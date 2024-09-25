@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Box Model</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .box {
+            width: calc(50% - 40px);
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .card {
+            border: 2px solid #333;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .outline-box {
+            border: none;
+            outline: 4px dashed #4CAF50;
+            outline-offset: 5px;
+        }
+
+        .gradient-box {
+            background-image: linear-gradient(45deg, #0717ff, #FF5722);
+            color: white;
+            border-radius: 20px;
+        }
+
+        .column-box {
+            column-count: 2;
+            column-gap: 20px;
+            column-rule: 1px solid #ccc;
+        }
+
+        .overflow-box {
+            height: 150px;
+            overflow-y: auto;
+        }
+
+        .transform-box {
+            transform: skew(-10deg);
+            background-color: #E91E63;
+            color: white;
+        }
+
+        .clip-box {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+            background-color: #3F51B5;
+            color: white;
+            padding-bottom: 50px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        @media (max-width: 768px) {
+            .box {
+                width: calc(100% - 40px);
+            }
+        }
+
+        /* Estilos para la cartelera de películas */
+        .movie-billboard {
+            margin-top: 40px;
+            width: 100%;
+        }
+
+        .movie-billboard h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .movie-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .movie-poster {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .movie-info {
+            padding: 15px;
+        }
+
+        .movie-title {
+            margin: 0;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .movie-year {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .movie-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box card">
+        <h2>Tarjeta Personal</h2>
+        <p><strong>Nombre:</strong> Amilcar Brandon Zamora Paredes</p>
+        <p><strong>Profesión:</strong> Programador en HTML (programación web) </p>
+        <p><strong>Email:</strong> abzamora@gmail.com</p>
+    </div>
+
+    <div class="box outline-box">
+        <h2>Caja con Outline</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>
+    </div>
+
+    <div class="box gradient-box">
+        <h2>Caja con Gradiente</h2>
+        <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</p>
+    </div>
+
+    <div class="box column-box">
+        <h2>Caja con Columnas</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula.</p>
+    </div>
+
+    <div class="box overflow-box">
+        <h2>Caja con Overflow</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia alias dolor natus beatae? Est, iure et dolorem laboriosam rem eos dolorum quia dicta quaerat eaque velit quae quam magni cupiditate.
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea sequi veritatis quod nesciunt asperiores culpa amet, magni porro illum, facere possimus animi soluta quos officia maiores vel, exercitationem libero totam.
+        </p>
+    </div>
+
+    <div class="box transform-box">
+        <h2>Caja Transformada</h2>
+        <p>Proin eget tortor risus. Curabitur aliquet quam id dui posuere blandit.</p>
+    </div>
+
+    <div class="box clip-box">
+        <h2>Caja Recortada</h2>
+        <p>Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit.</p>
+    </div>
+
+    <section class="movie-billboard">
+        <h2>Cartelera de Películas</h2>
+        <div class="movie-grid">
+            <div class="movie-card">
+                <img src="saopaulo.jpg" alt="Película 1" class="movie-poster">
+                <div class="movie-info">
+                    <h3 class="movie-title">El Gran Aventurero</h3>
+                    <p class="movie-year">2023</p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <img src="lapaz.jpg" alt="Película 2" class="movie-poster">
+                <div class="movie-info">
+                    <h3 class="movie-title">Misterio en la Noche</h3>
+                    <p class="movie-year">2023</p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <img src="saopaulo.jpg" alt="Película 3" class="movie-poster">
+                <div class="movie-info">
+                    <h3 class="movie-title">Amor en París</h3>
+                    <p class="movie-year">2022</p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <img src="lapaz.jpg" alt="Película 4" class="movie-poster">
+                <div class="movie-info">
+                    <h3 class="movie-title">El Último Superhéroe</h3>
+                    <p class="movie-year">2023</p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <img src="saopaulo.jpg" alt="Película 5" class="movie-poster">
+                <div class="movie-info">
+                    <h3 class="movie-title">Viaje al Centro de la Tierra</h3>
+                    <p class="movie-year">2022</p>
+                </div>
+            </div>
+            <div class="movie-card">
+                <img src="lapaz.jpg" alt="Película 6" class="movie-poster">
+                <div class="movie-info">
+                    <h3 class="movie-title">La Gran Estafa</h3>
+                    <p class="movie-year">2023</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
